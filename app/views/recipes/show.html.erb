@@ -1,0 +1,16 @@
+Name:<%= @recipe.name %>
+Complexity:<%= @recipe.complexity %>
+Genre:<%= @recipe.genre %>
+
+Ingredient
+<% @recipe.ingredients.each do |ingredient| %>
+ Name:<%= ingredient.name %>
+ <% end  %>
+
+ Total cost:<%= @recipe.total_cost %>
+
+ <%= form_with url: "/recipes/#{@recipe.id}/ingredients" do |f| %>
+ <%= f.label "Ingredient Id" %>
+ <%= f.text_field:ingredient_id  %>
+ <%= f.submit "Add Ingredient" %>
+ <% end %>
